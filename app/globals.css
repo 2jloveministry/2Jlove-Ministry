@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #F6F1E8;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+}
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: .045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23a)' opacity='.85'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  .container-ministry {
+    @apply mx-auto w-[min(1180px,calc(100%-40px))];
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-black uppercase tracking-[0.28em] text-ministryMuted;
+  }
+
+  .section-title {
+    @apply text-[clamp(42px,6vw,90px)] font-light leading-[1.06] tracking-[-0.075em];
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-[50px] items-center justify-center rounded-full bg-ministryWhite px-6 font-black text-black transition hover:-translate-y-1 hover:shadow-ministry;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-[50px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 font-black text-ministryWhite backdrop-blur transition hover:-translate-y-1 hover:bg-white/10 hover:shadow-ministry;
+  }
+}
